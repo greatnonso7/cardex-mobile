@@ -5,4 +5,5 @@ export const font = {
   LexendMedium: 'Lexend-Medium',
   LexendRegular: 'Lexend-Regular',
   LexendSemiBold: 'Lexend-SemiBold',
+  LexendExtraBold: 'Lexend-ExtraBold',
 };
