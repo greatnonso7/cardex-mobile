@@ -1,8 +1,7 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import { Box, Text } from 'design-system';
 import React from 'react';
-import { Image, StyleSheet, TouchableOpacity } from 'react-native';
-import Config from 'react-native-config';
+import { Image, TouchableOpacity } from 'react-native';
 import { AppLogo, Screen } from 'shared';
 import theme from 'theme';
 import { AuthStackParamList } from 'types';
@@ -11,13 +10,12 @@ import { deviceWidth, wp } from 'utils';
 type Props = StackScreenProps<AuthStackParamList, 'GetStarted'>;
 
 const GetStarted = ({ navigation: { navigate } }: Props) => {
-  console.log(Config);
   return (
     <Screen removeSafeaArea backgroundColor={theme.colors.OFF_PRIMARY}>
       <Box>
         <AppLogo />
         <Box mt={50} alignSelf={'center'}>
-          <Image source={theme.images['get-started']} style={styles.getStartedImage} resizeMode="contain" />
+          <Image source={theme.images['get-started']} resizeMode="contain" />
         </Box>
       </Box>
 
@@ -50,11 +48,5 @@ const GetStarted = ({ navigation: { navigate } }: Props) => {
     </Screen>
   )
 }
-
-const styles = StyleSheet.create({
-  getStartedImage: {
-
-  }
-})
 
 export default GetStarted;

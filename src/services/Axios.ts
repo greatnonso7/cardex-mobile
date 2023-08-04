@@ -11,11 +11,9 @@ Axios.defaults.headers.post.Accept = 'application/json';
 
 Axios.interceptors.request.use(async (config: any) => {
   const token = storage.getString('user_token');
-  console.log(token);
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-  console.log(config);
   return config;
 });
 

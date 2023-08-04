@@ -47,18 +47,14 @@ const Login = ({ navigation: { navigate } }: Props) => {
     error,
     status,
   } = useMutation(setLogin, {
-    onSuccess: async data => {
-      console.log(data);
-      // const userData = data?.data?.user;
-      // queryClient.setQueryData('user', userData);
-      // storage.set('user_token', data?.data?.token);
-      // storage.set('user_data', JSON.stringify(userData));
-
-      // const checkVerification = storage.getBoolean('has_done_verification');
-      // const verificationKeys = ['Pending', 'None'];
-      // await Keychain.setGenericPassword(formattedPhone, formik.values.password);
+    onSuccess: async (data: any) => {
+      console.log(data, 'data');
 
       setTimeout(() => {
+        if (data?.statusCode === 200) {
+          setLoading(false);
+          navigate('CompleteLogin', { email })
+        }
         setLoading(false);
       }, 500);
     },

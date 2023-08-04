@@ -12,6 +12,7 @@ import EnterOTP from 'screens/auth/create-account/EnterOtp';
 import SetPassword from 'screens/auth/create-account/SetPassword';
 import SetPhone from 'screens/auth/create-account/SetPhone';
 import CompleteSignup from 'screens/auth/create-account/CompleteSignup';
+import CompleteLogin from 'screens/auth/complete-signup';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 
@@ -31,6 +32,7 @@ const AuthNavigation = () => {
       <AuthStack.Screen name="SetPassword" component={SetPassword} />
       <AuthStack.Screen name="SetPhone" component={SetPhone} />
       <AuthStack.Screen name="CompleteSignup" component={CompleteSignup} />
+      <AuthStack.Screen name="CompleteLogin" component={CompleteLogin} />
     </AuthStack.Navigator>
   );
 };
