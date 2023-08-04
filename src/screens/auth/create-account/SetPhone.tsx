@@ -50,6 +50,8 @@ const SetPhone = ({ navigation: { navigate } }: Props) => {
             isPhone
             name="phone"
             value={phone}
+            keyboardType="numeric"
+            returnKeyType="done"
             placeholder="9038819008"
             maxLength={11}
             errorText={capitalizeFirstLetter(errors.phone?.message as string)}
