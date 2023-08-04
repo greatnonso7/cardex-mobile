@@ -6,7 +6,7 @@ import { Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { AppLogo, Icon, Screen } from 'shared';
 import theme from 'theme';
 import { AuthStackParamList } from 'types';
-import { deviceWidth, hp, wp } from 'utils';
+import { deviceWidth, hp, isIos, wp } from 'utils';
 
 type Props = StackScreenProps<AuthStackParamList, 'Onboarding'>;
 
@@ -75,7 +75,7 @@ const Onboarding = ({ navigation: { navigate } }: Props) => {
       </ScrollView>
       <Box
         position={'absolute'}
-        bottom={hp(100)}
+        bottom={isIos ? hp(80) : hp(100)}
         zIndex={10000}
         alignSelf={'center'}
         justifyContent={'center'}

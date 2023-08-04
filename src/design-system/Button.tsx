@@ -36,7 +36,7 @@ export const Button = ({
       alignItems="center"
       justifyContent="center"
       borderRadius={hp(7)}
-      height={hp(46)}
+      height={hp(65)}
       backgroundColor={backgroundColor || theme.colors.PRIMARY}
       {...props}>
       <Box
@@ -54,8 +54,9 @@ export const Button = ({
               </Box>
             )}
             <Text
-              color={textColor || 'white'}
-              variant={textVariant || 'headerBold'}>
+              color={textColor || theme.colors.PRIMARY_100}
+              fontSize={hp(18)}
+              variant={textVariant || 'headerNormal'}>
               {title}
             </Text>
           </>

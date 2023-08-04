@@ -54,6 +54,10 @@ export const typography = {
     fontFamily: font.LexendSemiBold,
     fontSize: hp(18),
   },
+  headerNormal: {
+    fontFamily: font.LexendRegular,
+    fontSize: hp(18),
+  },
   heading: {
     fontFamily: font.LexendBold,
     fontSize: hp(20),

@@ -7,4 +7,8 @@ export const colors = {
   PRIMARY_100: '#042B2E',
   PRIMARY_200: '#ccf4e5',
   OFF_WHITE: '#c4c4c4',
+  ERROR_RED: '#FF2A1F',
+  LIGHT_ERROR_RED: '#FF2A1F1A',
+  PLACEHOLDER: '#6A6A6A',
+  LABEL_TEXT: '#BEBEBE',
 };

@@ -30,7 +30,7 @@ const GetStarted = ({ navigation: { navigate } }: Props) => {
           alignItems={'center'}
           width={wp(180)}
           backgroundColor={theme.colors.PRIMARY_200}>
-          <Text color={theme.colors.PRIMARY_100}>Create account</Text>
+          <Text color={theme.colors.PRIMARY_100} variant="header">Create account</Text>
         </Box>
         <Box
           height={104}
@@ -42,7 +42,7 @@ const GetStarted = ({ navigation: { navigate } }: Props) => {
           borderTopLeftRadius={10}
           width={wp(180)}
           backgroundColor={theme.colors.PRIMARY}>
-          <Text color={theme.colors.PRIMARY_100}>Login</Text>
+          <Text color={theme.colors.PRIMARY_100} variant="header">Log in</Text>
         </Box>
       </Box>
     </Screen>
