@@ -32,8 +32,6 @@ type Props = StackScreenProps<AuthStackParamList, 'CompleteSignup'>;
 const CompleteSignup = ({ navigation: { navigate } }: Props) => {
   const { params } = useRoute<RouteProp<AuthStackParamList, 'CompleteSignup'>>()
 
-  const [showPassword, setShowPassword] = useState(true);
-
   const {
     control,
     watch,
