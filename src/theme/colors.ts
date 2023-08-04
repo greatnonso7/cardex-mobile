@@ -4,4 +4,6 @@ export const colors = {
   BLACK: '#000000',
   LIGHT_PRIMARY: '#47EAA633',
   OFF_PRIMARY: '#EDF6F5',
+  PRIMARY_100: '#042B2E',
+  OFF_WHITE: '#c4c4c4',
 };

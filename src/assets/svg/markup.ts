@@ -8,5 +8,10 @@ export const getMarkup: any = (color?: string) => {
     <path d="M10.1666 5.52588L13.1239 9.09209L10.4019 12.4332L5.86356 18H0L7.44455 8.86696L0.0818821 0H5.57704L10.1666 5.52588Z" fill="#042B2E"/>
     </svg>
     `,
+    skip: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 8L17 12L13 16" stroke="#47EAA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 8L11 12L7 16" stroke="#47EAA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`,
   };
 };
