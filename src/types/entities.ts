@@ -11,6 +11,8 @@ export type AuthStackParamList = {
   GetStarted: undefined;
   EnterOTP: { email?: string };
   SetPassword: { email?: string };
+  SetPhone: { email?: string; password?: string };
+  CompleteSignup: { email?: string; password?: string; phone?: string };
 };
 
 export type PhoneCountry = {

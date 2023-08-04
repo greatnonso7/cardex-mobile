@@ -28,5 +28,11 @@ export const getMarkup: any = (color?: string) => {
 <path d="M7 12.2813L10.3294 15.7813L17 8.78125" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `,
+    'arrow-down': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.2">
+<path d="M16 10L12 14L8 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
+`,
   };
 };

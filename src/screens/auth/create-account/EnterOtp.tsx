@@ -65,12 +65,14 @@ const EnterOTP = ({ navigation: { navigate } }: Props) => {
 
         <Box mt={30}>
           <RegularInput
-            keyboardType="email-address"
+            keyboardType="numeric"
+            returnKeyType="done"
             autoCapitalize="none"
             control={control}
             name="otp"
             baseContainerStyle={styles.baseContainerStyle}
             value={otp}
+            maxLength={6}
             textInputContainerStyle={styles.textInputContainerStyle}
             placeholder="* * * * * *"
             errorText={capitalizeFirstLetter(errors.otp?.message as string)}
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
   },
   textInputContainerStyle: {
     fontSize: hp(20),
-    lineHeight: hp(32)
+    lineHeight: hp(22)
   }
 })
 

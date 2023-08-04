@@ -24,13 +24,12 @@ interface RegularInputProps extends InputBaseProps, TextInputProps {
   baseContainerStyle?: ViewStyle;
   hasIcon?: string;
   textInputContainerStyle?: any;
-  noForgot?: boolean;
   password?: boolean;
   onPressPasswordIcon?: () => void;
   isDropDown?: boolean;
   onPressDropDown?: () => void;
-  isTag?: boolean;
   isLoading?: boolean;
+  isPhone?: boolean;
 }
 
 interface ComponentMapType {
@@ -49,13 +48,12 @@ export const RegularInput = ({
   name = '',
   type = 'regular',
   baseContainerStyle,
-  noForgot,
   onPressPasswordIcon,
   password,
   isDropDown,
   onPressDropDown,
-  isTag,
   isLoading,
+  isPhone,
   textInputContainerStyle,
   ...props
 }: RegularInputProps) => {
@@ -71,6 +69,12 @@ export const RegularInput = ({
           baseContainerStyle,
           Boolean(errorText) && styles.errorContainer,
         ]}>
+        {isPhone && (
+          <Box flexDirection={'row'} as={TouchableOpacity} activeOpacity={0.8} alignItems={'center'}>
+            <Text>+234</Text>
+            <Icon name="arrow-down" />
+          </Box>
+        )}
         <TextInput
           style={[
             styles.textInput,
@@ -136,19 +140,6 @@ export const RegularInput = ({
           <Text variant="bodySmall" bottom={15} color="red">
             {errorText}
           </Text>
-        )}
-        {props?.secureTextEntry && noForgot && (
-          <Box
-            as={TouchableOpacity}
-            onPress={() => navigation.navigate('ForgotPassword')}
-            activeOpacity={0.8}
-            position={'absolute'}
-            right={0}
-            top={2}>
-            <Text variant="bodyBold" color={theme.colors.LABEL_TEXT}>
-              Forgot password?
-            </Text>
-          </Box>
         )}
       </Box>
     </Box>
