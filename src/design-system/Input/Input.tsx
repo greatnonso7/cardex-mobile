@@ -140,7 +140,7 @@ export const RegularInput = ({
       />
       <Box flexDirection={'row'}>
         {errorText && (
-          <Text variant="bodySmall" top={1} color="red">
+          <Text variant="bodySmall" bottom={15} color="red">
             {errorText}
           </Text>
         )}

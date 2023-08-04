@@ -11,4 +11,5 @@ export const colors = {
   LIGHT_ERROR_RED: '#FF2A1F1A',
   PLACEHOLDER: '#6A6A6A',
   LABEL_TEXT: '#BEBEBE',
+  TEXT_INPUT_CONTAINER: '#e7efee',
 };

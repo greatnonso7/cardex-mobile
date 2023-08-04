@@ -45,7 +45,7 @@ const Login = ({ navigation: { navigate } }: Props) => {
         <Text variant="h2">Log in</Text>
         <Text variant="body" pt={10} color={theme.colors.BLACK} opacity={0.6}>Enter email address and password to log in</Text>
 
-        <Box mt={50} mx={16}>
+        <Box mt={50}>
           <RegularInput
             containerProps={{ mb: 16 }}
             keyboardType="email-address"
