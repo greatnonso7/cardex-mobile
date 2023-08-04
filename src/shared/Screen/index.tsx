@@ -26,9 +26,9 @@ export const Screen = ({
           backgroundColor={backgroundColor || 'white'}
           flex={1}
           opacity={opacity || 1}
-          pt={isAndroid ? top + hp(30) : top}>
+          pt={isAndroid ? top + hp(30) : top + hp(20)}>
           <StatusBar
-            backgroundColor="white"
+            backgroundColor={backgroundColor || 'white'}
             translucent
             barStyle="dark-content"
           />
@@ -40,7 +40,7 @@ export const Screen = ({
           flex={1}
           as={SafeAreaView}>
           <StatusBar
-            backgroundColor="white"
+            backgroundColor={backgroundColor || 'white'}
             translucent
             barStyle="dark-content"
           />
