@@ -12,4 +12,5 @@ export const colors = {
   PLACEHOLDER: '#6A6A6A',
   LABEL_TEXT: '#BEBEBE',
   TEXT_INPUT_CONTAINER: '#e7efee',
+  LIGHT_GRAY: '#717171',
 };

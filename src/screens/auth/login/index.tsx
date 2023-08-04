@@ -45,9 +45,8 @@ const Login = ({ navigation: { navigate } }: Props) => {
         <Text variant="h2">Log in</Text>
         <Text variant="body" pt={10} color={theme.colors.BLACK} opacity={0.6}>Enter email address and password to log in</Text>
 
-        <Box mt={50}>
+        <Box mt={30}>
           <RegularInput
-            containerProps={{ mb: 16 }}
             keyboardType="email-address"
             label="Email Address"
             autoCapitalize="none"
@@ -73,7 +72,7 @@ const Login = ({ navigation: { navigate } }: Props) => {
       </Box>
 
       <Text position={'absolute'} alignSelf={'center'} width={wp(300)} bottom={150} textAlign={'center'} variant="headerMedium">Online Card Access</Text>
-      <Button position={'absolute'} bottom={40} alignSelf={'center'} width={wp(330)} title="Proceed" />
+      <Button position={'absolute'} bottom={40} alignSelf={'center'} width={wp(330)} title="Proceed" disabled={email && password ? false : true} />
     </Screen>
   )
 }
