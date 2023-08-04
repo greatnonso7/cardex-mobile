@@ -29,7 +29,7 @@ Axios.interceptors.response.use(
     if (statusCode === 401 && !originalRequest._retry) {
       console.log(error.response);
     }
-    console.log(error.response);
+    // console.log(error.response);
     return Promise.reject(error.response);
   },
 );

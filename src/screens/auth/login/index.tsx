@@ -1,6 +1,6 @@
 import { Box, Button, RegularInput, Text } from 'design-system';
 import React, { useState } from 'react';
-import { Header, Screen } from 'shared';
+import { Header, LoadingModal, Screen } from 'shared';
 import theme from 'theme';
 import { capitalizeFirstLetter, wp } from 'utils';
 import { useForm } from 'react-hook-form';
@@ -8,6 +8,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { AuthStackParamList } from 'types';
 import { StackScreenProps } from '@react-navigation/stack';
+import { useMutation } from '@tanstack/react-query';
+import { setLogin } from 'services';
 
 interface FormData {
   email: string;
@@ -23,6 +25,7 @@ type Props = StackScreenProps<AuthStackParamList, 'Login'>;
 
 const Login = ({ navigation: { navigate } }: Props) => {
   const [showPassword, setShowPassword] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const {
     control,
@@ -38,8 +41,48 @@ const Login = ({ navigation: { navigate } }: Props) => {
   });
 
   const { email, password } = watch();
+
+  const {
+    mutate: login,
+    error,
+    status,
+  } = useMutation(setLogin, {
+    onSuccess: async data => {
+      console.log(data);
+      // const userData = data?.data?.user;
+      // queryClient.setQueryData('user', userData);
+      // storage.set('user_token', data?.data?.token);
+      // storage.set('user_data', JSON.stringify(userData));
+
+      // const checkVerification = storage.getBoolean('has_done_verification');
+      // const verificationKeys = ['Pending', 'None'];
+      // await Keychain.setGenericPassword(formattedPhone, formik.values.password);
+
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    },
+  });
+
+  const loginUser = async () => {
+    const data = {
+      email,
+      password,
+    };
+
+    await login(data);
+    setLoading(true);
+  }
+
   return (
     <Screen removeSafeaArea backgroundColor={theme.colors.OFF_PRIMARY}>
+      <LoadingModal
+        status={status}
+        successText="Login successful"
+        visible={loading}
+        onClose={() => setLoading(false)}
+        error={error}
+      />
       <Header hasBackButton />
       <Box mx={24} mt={20}>
         <Text variant="h2">Log in</Text>
@@ -72,7 +115,7 @@ const Login = ({ navigation: { navigate } }: Props) => {
       </Box>
 
       <Text position={'absolute'} alignSelf={'center'} width={wp(300)} bottom={150} textAlign={'center'} variant="headerMedium">Online Card Access</Text>
-      <Button position={'absolute'} bottom={40} alignSelf={'center'} width={wp(330)} title="Proceed" disabled={email && password ? false : true} />
+      <Button position={'absolute'} bottom={40} alignSelf={'center'} width={wp(330)} title="Proceed" disabled={email && password ? false : true} onPress={() => loginUser()} />
     </Screen>
   )
 }

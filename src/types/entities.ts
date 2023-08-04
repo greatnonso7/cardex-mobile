@@ -22,3 +22,12 @@ export type PhoneCountry = {
   code?: string | number;
   dial_code?: string;
 };
+
+export type loginRequest = {
+  email: string;
+  password: string;
+};
+
+export type getTokenRequest = {
+  email: string;
+};

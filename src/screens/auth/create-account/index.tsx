@@ -1,6 +1,6 @@
 import { Box, Button, RegularInput, Text } from 'design-system';
 import React, { useState } from 'react';
-import { Header, Icon, Screen } from 'shared';
+import { Header, Icon, LoadingModal, Screen } from 'shared';
 import theme from 'theme';
 import { capitalizeFirstLetter, wp } from 'utils';
 import { useForm } from 'react-hook-form';
@@ -9,6 +9,8 @@ import * as yup from 'yup';
 import { AuthStackParamList } from 'types';
 import { StackScreenProps } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native';
+import { getVerificationToken } from 'services';
+import { useMutation } from '@tanstack/react-query';
 
 interface FormData {
   email: string;
@@ -24,7 +26,9 @@ type Props = StackScreenProps<AuthStackParamList, 'CreateAccount'>;
 
 const CreateAccount = ({ navigation: { navigate } }: Props) => {
   const [isActive, setIsActive] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  getVerificationToken
   const {
     control,
     watch,
@@ -38,8 +42,40 @@ const CreateAccount = ({ navigation: { navigate } }: Props) => {
   });
 
   const { email } = watch();
+
+  const {
+    mutate: initVerifyToken,
+    error,
+    status,
+  } = useMutation(getVerificationToken, {
+    onSuccess: async (data: any) => {
+      setTimeout(() => {
+        if (data?.statusCode === 200) {
+          setLoading(false);
+          navigate('EnterOTP', { email })
+        }
+        setLoading(false);
+      }, 500);
+    },
+  });
+
+  const verifyUser = async () => {
+    const data = {
+      email,
+    };
+
+    await initVerifyToken(data);
+    setLoading(true);
+  }
   return (
     <Screen removeSafeaArea backgroundColor={theme.colors.OFF_PRIMARY}>
+      <LoadingModal
+        status={status}
+        successText="Verify email initialized successfully"
+        visible={loading}
+        onClose={() => setLoading(false)}
+        error={error}
+      />
       <Header hasBackButton />
       <Box mx={24} mt={20}>
         <Text variant="h2">Sign up</Text>
@@ -65,7 +101,7 @@ const CreateAccount = ({ navigation: { navigate } }: Props) => {
         </Box>
       </Box>
 
-      <Button alignSelf={'center'} mt={20} width={wp(330)} title="Proceed" disabled={email && isActive ? false : true} onPress={() => navigate('EnterOTP', { email })} />
+      <Button alignSelf={'center'} mt={20} width={wp(330)} title="Proceed" disabled={email && isActive ? false : true} onPress={() => verifyUser()} />
     </Screen>
   )
 }
