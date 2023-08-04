@@ -54,5 +54,20 @@ export const getMarkup: any = (color?: string) => {
     <path d="M18.5677 7.11196C19.1639 6.51574 20.186 6.51574 20.7822 7.11196L22.0172 8.34697C22.6135 8.94319 22.6135 9.96527 22.0172 10.5615L12.6482 19.888C12.0519 20.4842 11.0299 20.4842 10.4336 19.888L9.19863 18.653C8.60241 18.0567 8.60241 17.0347 9.19863 16.4385L18.5677 7.11196Z" fill="white"/>
     </svg>
     `,
+    close: `<svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_b_2233_12752)">
+<rect y="0.5" width="30" height="30" rx="15" fill="#F2F2F7"/>
+<path d="M10.0493 19.6821C9.73828 19.9931 9.73193 20.5454 10.0557 20.8691C10.3857 21.1928 10.938 21.1865 11.2427 20.8818L15.0005 17.124L18.752 20.8754C19.0693 21.1928 19.6152 21.1928 19.939 20.8691C20.2627 20.539 20.2627 19.9995 19.9453 19.6821L16.1938 15.9306L19.9453 12.1728C20.2627 11.8554 20.269 11.3095 19.939 10.9858C19.6152 10.6621 19.0693 10.6621 18.752 10.9794L15.0005 14.7309L11.2427 10.9794C10.938 10.6684 10.3794 10.6557 10.0557 10.9858C9.73193 11.3095 9.73828 11.8681 10.0493 12.1728L13.8008 15.9306L10.0493 19.6821Z" fill="#0F0920"/>
+</g>
+<defs>
+<filter id="filter0_b_2233_12752" x="-54.3656" y="-53.8656" width="138.731" height="138.731" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="27.1828"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2233_12752"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2233_12752" result="shape"/>
+</filter>
+</defs>
+</svg>
+`,
   };
 };
