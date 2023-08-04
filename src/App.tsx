@@ -6,10 +6,10 @@ import theme from 'theme';
 import FlashMessage from 'react-native-flash-message';
 import { hp } from 'utils';
 import { StyleSheet } from 'react-native';
-import { Provider } from 'react-redux';
-import { store } from 'redux/store';
-import { PersistGate } from 'redux-persist/lib/integration/react';
-import { getPersistor } from '@rematch/persist';
+// import { Provider } from 'react-redux';
+// import { store } from 'redux/store';
+// import { PersistGate } from 'redux-persist/lib/integration/react';
+// import { getPersistor } from '@rematch/persist';
 
 const App = () => {
   useEffect(() => {
@@ -19,18 +19,18 @@ const App = () => {
   }, []);
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={getPersistor()}>
-        <ThemeProvider theme={theme}>
-          <FlashMessage
-            position="top"
-            duration={4500}
-            titleStyle={styles.titleStyle}
-          />
-          <Navigation />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
+    // <Provider store={store}>
+    // <PersistGate loading={null} persistor={getPersistor()}>
+    <ThemeProvider theme={theme}>
+      <FlashMessage
+        position="top"
+        duration={4500}
+        titleStyle={styles.titleStyle}
+      />
+      <Navigation />
+    </ThemeProvider>
+    // </PersistGate>
+    // </Provider>
   );
 };
 

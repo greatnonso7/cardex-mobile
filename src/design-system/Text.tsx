@@ -52,7 +52,7 @@ const TextOptions = compose(
 const Text = styled.Text<TextProps>(TextOptions);
 
 Text.defaultProps = {
-  color: theme.colors.PRIMARY,
+  color: theme.colors.BLACK,
   variant: 'body',
 };
 
