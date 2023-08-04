@@ -14,7 +14,7 @@ import Text from '../Text';
 import { InputBaseProps } from './types';
 import theme from 'theme';
 import styles from './style';
-import { hp, wp } from 'utils';
+import { hp } from 'utils';
 import { useNavigation } from '@react-navigation/native';
 import { Icon } from 'shared';
 
@@ -31,8 +31,6 @@ interface RegularInputProps extends InputBaseProps, TextInputProps {
   onPressDropDown?: () => void;
   isTag?: boolean;
   isLoading?: boolean;
-  isAvailable?: boolean;
-  isAmount?: boolean;
 }
 
 interface ComponentMapType {
@@ -52,16 +50,13 @@ export const RegularInput = ({
   type = 'regular',
   baseContainerStyle,
   noForgot,
-  hasIcon,
   onPressPasswordIcon,
   password,
   isDropDown,
   onPressDropDown,
   isTag,
   isLoading,
-  isAvailable,
   textInputContainerStyle,
-  isAmount,
   ...props
 }: RegularInputProps) => {
   const regularInput = ({ onChange, onBlur, value }: ControllerRenderProps) => {
@@ -76,12 +71,10 @@ export const RegularInput = ({
           baseContainerStyle,
           Boolean(errorText) && styles.errorContainer,
         ]}>
-        {hasIcon && <Icon name={hasIcon} />}
         <TextInput
           style={[
             styles.textInput,
             textInputContainerStyle,
-            { paddingLeft: hasIcon ? wp(10) : 0 },
           ]}
           value={value}
           onChangeText={onChange}

@@ -9,6 +9,8 @@ export type AuthStackParamList = {
   Login: undefined;
   CreateAccount: undefined;
   GetStarted: undefined;
+  EnterOTP: { email?: string };
+  SetPassword: { email?: string };
 };
 
 export type PhoneCountry = {

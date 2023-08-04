@@ -65,7 +65,7 @@ const CreateAccount = ({ navigation: { navigate } }: Props) => {
         </Box>
       </Box>
 
-      <Button alignSelf={'center'} mt={20} width={wp(330)} title="Proceed" disabled={email && isActive ? false : true} />
+      <Button alignSelf={'center'} mt={20} width={wp(330)} title="Proceed" disabled={email && isActive ? false : true} onPress={() => navigate('EnterOTP', { email })} />
     </Screen>
   )
 }

@@ -13,4 +13,5 @@ export const colors = {
   LABEL_TEXT: '#BEBEBE',
   TEXT_INPUT_CONTAINER: '#e7efee',
   LIGHT_GRAY: '#717171',
+  OFF_WHITE_100: '#F6FBFA',
 };

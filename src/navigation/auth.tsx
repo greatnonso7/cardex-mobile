@@ -8,6 +8,7 @@ import Login from 'screens/auth/login';
 import GetStarted from 'screens/auth/get-started';
 import CreateAccount from 'screens/auth/create-account';
 import { AuthStackParamList } from 'types';
+import EnterOTP from 'screens/auth/create-account/EnterOtp';
 
 const AuthStack = createStackNavigator<AuthStackParamList>();
 
@@ -23,6 +24,7 @@ const AuthNavigation = () => {
       <AuthStack.Screen name="Login" component={Login} />
       <AuthStack.Screen name="GetStarted" component={GetStarted} />
       <AuthStack.Screen name="CreateAccount" component={CreateAccount} />
+      <AuthStack.Screen name="EnterOTP" component={EnterOTP} />
     </AuthStack.Navigator>
   );
 };
