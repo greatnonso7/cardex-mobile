@@ -29,7 +29,7 @@ export const SelectState = ({
           <Box>
             <Text
               variant="h3"
-              fontSize={hp(24)}
+              fontSize={hp(20)}
               fontFamily={theme.font.LexendSemiBold}>
               Select state of residence
             </Text>
@@ -61,7 +61,7 @@ export const SelectState = ({
                     py={1}
                     borderRadius={10}>
                     <Box flexDirection={'row'} alignItems={'center'}>
-                      <Text variant="bodyBold">{option}</Text>
+                      <Text variant="body">{option}</Text>
                     </Box>
                   </Box>
                 );

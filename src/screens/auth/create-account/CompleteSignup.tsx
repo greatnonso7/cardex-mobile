@@ -10,6 +10,7 @@ import { AuthStackParamList } from 'types';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
+import { SelectGender, SelectState } from './modals';
 
 interface FormData {
   name: string;
@@ -30,11 +31,14 @@ const schema = yup.object().shape({
 type Props = StackScreenProps<AuthStackParamList, 'CompleteSignup'>;
 
 const CompleteSignup = ({ navigation: { navigate } }: Props) => {
+  const [openGender, setOpenGender] = useState(false);
+  const [openStates, setOpenStates] = useState(false);
   const { params } = useRoute<RouteProp<AuthStackParamList, 'CompleteSignup'>>()
 
   const {
     control,
     watch,
+    setValue,
     formState: { errors },
   } = useForm<FormData>({
     resolver: yupResolver(schema),
@@ -49,6 +53,16 @@ const CompleteSignup = ({ navigation: { navigate } }: Props) => {
   });
 
   const { name, gender, dateOfBirth, address, state } = watch();
+  const onSelectGender = async (selectedGender: string) => {
+    console.log('onSelectGender', selectedGender);
+    setOpenGender(false);
+    setValue('gender', selectedGender);
+  }
+
+  const onSelectState = async (selectedState: string) => {
+    setOpenStates(false);
+    setValue('state', selectedState);
+  }
   return (
     <Screen removeSafeaArea backgroundColor={theme.colors.OFF_PRIMARY}>
       <AvoidingView>
@@ -75,6 +89,7 @@ const CompleteSignup = ({ navigation: { navigate } }: Props) => {
                 name="gender"
                 value={gender}
                 isDropDown
+                onPressDropDown={() => setOpenGender(true)}
                 placeholder="Select your gender"
                 errorText={capitalizeFirstLetter(errors.gender?.message as string)}
               />
@@ -103,6 +118,7 @@ const CompleteSignup = ({ navigation: { navigate } }: Props) => {
                 name="state"
                 value={state}
                 isDropDown
+                onPressDropDown={() => setOpenStates(true)}
                 placeholder="Select your state"
                 errorText={capitalizeFirstLetter(errors.state?.message as string)}
               />
@@ -111,6 +127,8 @@ const CompleteSignup = ({ navigation: { navigate } }: Props) => {
           <Button mt={20} alignSelf={'center'} width={wp(330)} title="Proceed" disabled={state && address && name && dateOfBirth && gender ? false : true} />
         </ScrollView>
       </AvoidingView>
+      <SelectGender onClose={() => setOpenGender(false)} isVisible={openGender} onComplete={onSelectGender} />
+      <SelectState onClose={() => setOpenStates(false)} isVisible={openStates} onComplete={onSelectState} />
     </Screen>
   )
 }

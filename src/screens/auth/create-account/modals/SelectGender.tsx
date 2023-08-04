@@ -29,7 +29,7 @@ export const SelectGender = ({
           <Box>
             <Text
               variant="h3"
-              fontSize={hp(24)}
+              fontSize={hp(20)}
               fontFamily={theme.font.LexendSemiBold}>
               Select gender
             </Text>
@@ -60,7 +60,7 @@ export const SelectGender = ({
                     py={1}
                     borderRadius={10}>
                     <Box flexDirection={'row'} alignItems={'center'}>
-                      <Text variant="bodyBold">{option.title}</Text>
+                      <Text variant="body">{option.title}</Text>
                     </Box>
                   </Box>
                 );
