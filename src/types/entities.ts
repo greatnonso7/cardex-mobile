@@ -29,5 +29,9 @@ export type loginRequest = {
 };
 
 export type getTokenRequest = {
-  email: string;
+  email?: string;
+};
+
+export type verifyEmailTokenRequest = {
+  code: string;
 };
